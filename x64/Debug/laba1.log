@@ -1,0 +1,21 @@
+﻿  game.cpp
+C:\Users\leong\source\repos\laba1\player_random.h(11,19): error C2061: синтаксическая ошибка: идентификатор "Game"
+  player_random.cpp
+C:\Users\leong\source\repos\laba1\player_random.cpp(6,27): error C2653: RandomPlayer: не является именем класса или пространства имен
+C:\Users\leong\source\repos\laba1\player_random.cpp(7,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\leong\source\repos\laba1\player_random.cpp(8,2): error C2355: "this": может указываться только в нестатических членах-функциях или инициализаторах нестатических членов данных
+C:\Users\leong\source\repos\laba1\player_random.cpp(9,2): error C2355: "this": может указываться только в нестатических членах-функциях или инициализаторах нестатических членов данных
+C:\Users\leong\source\repos\laba1\player_random.cpp(10,2): error C2355: "this": может указываться только в нестатических членах-функциях или инициализаторах нестатических членов данных
+C:\Users\leong\source\repos\laba1\player_random.cpp(11,1): warning C4508: RandomPlayer: функция должна возвращать значение; предполагается возвращаемый тип "void"
+C:\Users\leong\source\repos\laba1\player_random.cpp(12,27): error C2653: RandomPlayer: не является именем класса или пространства имен
+C:\Users\leong\source\repos\laba1\player_random.cpp(13,1): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+C:\Users\leong\source\repos\laba1\player_random.cpp(14,1): warning C4508: RandomPlayer: функция должна возвращать значение; предполагается возвращаемый тип "void"
+C:\Users\leong\source\repos\laba1\player_random.cpp(16,26): error C2653: RandomPlayer: не является именем класса или пространства имен
+C:\Users\leong\source\repos\laba1\player_random.cpp(16,27): error C2065: Game: необъявленный идентификатор
+C:\Users\leong\source\repos\laba1\player_random.cpp(16,32): error C2146: синтаксическая ошибка: отсутствие ")" перед идентификатором "game"
+C:\Users\leong\source\repos\laba1\player_random.cpp(17,1): error C2143: синтаксическая ошибка: отсутствие ";" перед "{"
+C:\Users\leong\source\repos\laba1\player_random.cpp(17,1): error C2447: {: отсутствует заголовок функции (возможно, используется формальный список старого типа)
+  player_smart.cpp
+  main.cpp
+C:\Users\leong\source\repos\laba1\game.h(8,33): error C2504: RandomPlayer: не определен базовый класс
+  Создание кода...
