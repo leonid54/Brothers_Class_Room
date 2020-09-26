@@ -3,18 +3,27 @@
 #include "game.h"
 using namespace std;
 
-RandomPlayer::RandomPlayer(string name, int x, int y)
-{
-	this->name = name;
-	this->x = x;
-	this->y = y;
-}
 RandomPlayer::RandomPlayer()
 {
 }
 
-void RandomPlayer::DoStep(Game game)
+bool RandomPlayer::doStep(int& x, int& y, Game& game)
 {
-	game.MakeStep_X(x, y);
+    if (game.isBoardFilled())
+    {
+        return false;
+    }
+    do {
+        srand(time(0));
+        x = rand() % 3;
+        y = rand() % 3;
+        if (game.getBoard2().value[x][y] == "#")
+        {
+            break;
+        }
+    } while (true)
+    {
 
+    }
+    return true;
 }

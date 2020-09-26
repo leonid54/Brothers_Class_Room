@@ -1,21 +1,45 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include <ctime>
 #include "player_random.h"
 #include "player_smart.h"
 using namespace std;
 
-class Game: public RandomPlayer , public SmartPlayer
+struct Board
+{
+	char value[3][3];
+};
+
+struct Ñross
+{
+	static const char getType()
+	{
+		return 'x';
+	}
+};
+
+struct Zero
+{
+	static const char getType()
+	{
+		return '0';
+	}
+};
+
+template<typename T>
+class Game
 {
 public:
 
 
 	Game();
 	void getBoard();
-	void MakeStep_X( int random_step1, int random_step2);
-	void MakeStep_0( int random_step1, int random_step2);
-	char Board[3][3];
+	bool makeStep(int x, int y);
+	bool isBoardFilled();
+	Board& getBoard2();
 private:
-	int random_step1;
-	int random_step2;
+	Board board;
+	int x;
+	int y;
 };

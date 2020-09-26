@@ -7,11 +7,16 @@ using namespace std;
 int main()
 {
     setlocale(LC_ALL, "ru");
-    Game game;
-    RandomPlayer player_X("Jack",rand ()% 3, rand() % 3);
-    SmartPlayer player_0("Mila",2,3);
-    /*game.MakeStep_X(1,2);*/
-    /*game.MakeStep_0(2, 1);*/
-    game.getBoard();
+    Game<char> game;
+    RandomPlayer player;
+    int x, y;
+    if (player.doStep(x, y, game))
+    {
+        game.makeStep(x, y);
+    }
+    else
+    {
+        cout << "Доска кончилась" << endl;
+    }
     return 0;
 }
