@@ -1,20 +1,17 @@
 #pragma once
-
-
 #include <string>
 #include <iostream>
-
+#include "game.h"
 using namespace std;
 
 class SmartPlayer
 {
 public:
-	SmartPlayer();
-	SmartPlayer(string name, int z=0, int t=0);
-	pair<int, int> DoStep();
-	int z;
-	int t;
+	SmartPlayer(string name);
+	string getName();
+	bool doStep(int& x, int& y, Game& game);
 private:
-	string name;
-	
+	string m_name;
+	int x;
+	int y;
 };

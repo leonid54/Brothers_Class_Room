@@ -1,22 +1,2 @@
-﻿  game.cpp
-C:\Users\leong\source\repos\laba1\player_random.h(9,34): error C2061: синтаксическая ошибка: идентификатор "Game"
-  player_random.cpp
-C:\Users\leong\source\repos\laba1\player_random.h(9,34): error C2061: синтаксическая ошибка: идентификатор "Game"
-C:\Users\leong\source\repos\laba1\player_random.cpp(11,1): error C2511: bool RandomPlayer::doStep(int &,int &,Game &): перегруженная функция-член не найдена в "RandomPlayer"
-C:\Users\leong\source\repos\laba1\player_random.h(5): message : см. объявление "RandomPlayer"
-C:\Users\leong\source\repos\laba1\player_random.cpp(12,8): error C2662: bool Game<T>::isBoardFilled(void): невозможно преобразовать указатель "this" из "Game" в "Game<T> &"
-C:\Users\leong\source\repos\laba1\player_random.cpp(12,8): message : Причина: невозможно преобразовать "Game" в "Game<T>"
-C:\Users\leong\source\repos\laba1\player_random.cpp(12,9): message : Для преобразования требуется второй оператор пользовательского преобразования или конструктор
-C:\Users\leong\source\repos\laba1\game.h(39,7): message : см. объявление "Game<T>::isBoardFilled"
-C:\Users\leong\source\repos\laba1\player_random.cpp(21,23): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
-C:\Users\leong\source\repos\laba1\player_random.cpp(24,12): error C2662: void Game<T>::getBoard(void): невозможно преобразовать указатель "this" из "Game" в "Game<T> &"
-C:\Users\leong\source\repos\laba1\player_random.cpp(24,12): message : Причина: невозможно преобразовать "Game" в "Game<T>"
-C:\Users\leong\source\repos\laba1\player_random.cpp(24,13): message : Для преобразования требуется второй оператор пользовательского преобразования или конструктор
-C:\Users\leong\source\repos\laba1\game.h(37,7): message : см. объявление "Game<T>::getBoard"
-C:\Users\leong\source\repos\laba1\player_random.cpp(31,5): error C2059: синтаксическая ошибка: return
-  player_smart.cpp
-  main.cpp
-C:\Users\leong\source\repos\laba1\player_random.h(9,34): error C2061: синтаксическая ошибка: идентификатор "Game"
-C:\Users\leong\source\repos\laba1\main.cpp(13,8): error C2660: RandomPlayer::doStep: функция не принимает 3 аргументов
-C:\Users\leong\source\repos\laba1\player_random.h(9,7): message : см. объявление "RandomPlayer::doStep"
-  Создание кода...
+﻿  main.cpp
+  laba1.vcxproj -> C:\Users\leong\source\repos\laba1\x64\Debug\laba1.exe

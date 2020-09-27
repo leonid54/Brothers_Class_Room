@@ -2,13 +2,13 @@
 #include <string>
 #include <iostream>
 #include <ctime>
-#include "player_random.h"
-#include "player_smart.h"
+
 using namespace std;
 
 struct Board
 {
 	char value[3][3];
+	
 };
 
 struct Ñross
@@ -27,17 +27,27 @@ struct Zero
 	}
 };
 
-template<typename T>
+
 class Game
 {
 public:
-
-
 	Game();
-	void getBoard();
-	bool makeStep(int x, int y);
+	void showBoard();
+	void creatBoard();
+	template<typename T>
+	bool makeStep(int x, int y)
+	{
+		if (board.value[x][y] == '#')
+		{
+			board.value[x][y] = T::getType();
+			return true;
+		}
+		return false;
+	}
 	bool isBoardFilled();
-	Board& getBoard2();
+	Board& getBoard();
+	bool PlayBoardIsEnd();
+	
 private:
 	Board board;
 	int x;

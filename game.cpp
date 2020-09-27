@@ -4,45 +4,41 @@
 
 using namespace std;
 
-template<typename T>
-Game<T>::Game()
+
+Game::Game()
 {
-	
+}
+void Game::creatBoard()
+{
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j= 0; j < 3; j++)
+		{
+			board.value[i][j] = '#';
+		}
+	}
 }
 
-template<typename T>
-void Game<T>::getBoard()
+void Game::showBoard()
 {
 	for (int i = 0; i < 3; i++)
 	{
 		for (int j = 0; j < 3; j++)
 		{
-			cout << board[i][j];
+			cout << board.value[i][j];
 		}
 		cout << endl;
 	}
 	
 }
 
-template<typename T>
-bool Game<T>::makeStep(int x, int y)
-{
-	if (board.value[x][y] == '#')
-	{
-		board.value[x][y] = T::getType();
-		return true;
-	}
-	return false;
-}
-
-template<typename T>
-bool Game<T>::isBoardFilled()
+bool Game::isBoardFilled()
 {
 	for (int i = 0; i < 3; i++)
 	{
 		for (int j = 0; j < 3; j++)
 		{
-			if (board[i][j] == '#')
+			if (board.value[i][j] == 'x' )
 			{
 				return false;
 			}
@@ -50,9 +46,98 @@ bool Game<T>::isBoardFilled()
 	}
 	return true;
 }
-template<typename T>
-Board& Game<T>::getBoard2()
+
+Board& Game::getBoard()
 {
 	return board;
+}
+
+
+
+//проверка игры на окончание
+bool Game::PlayBoardIsEnd()
+{
+	for (int i = 0; i < 3; i++)
+	{
+		//если хоть один игрок заполнил строку крестиками или ноликами
+		if ((board.value[i][0] == board.value[i][1]) && (board.value[i][0] == board.value[i][2]) && (board.value[i][0] != '#'))
+		{
+			if (board.value[i][0] == 'x')
+			{
+				cout << "ѕобедили крестики!" << endl;
+			}
+			else
+			{
+				cout << "ѕобедили нолики! " << endl;
+			}
+			return true;
+		}
+		//если хоть один игрок заполнил столбец крестиками или ноликами
+
+		if ((board.value[0][i] == board.value[1][i]) && (board.value[0][i] == board.value[2][i]) && (board.value[0][i] != '#'))
+
+		{
+
+			if (board.value[0][i] == 'x')
+			{
+				cout << "ѕобедили крестики!" << endl;
+			}
+			else
+			{
+				cout << "ѕобедили нолики! " << endl;
+			}
+			return true;
+		}
+	}
+
+	//если заполнена главна€ диагональ
+
+	if ((board.value[0][0] == board.value[1][1]) && (board.value[0][0] == board.value[2][2]) && (board.value[0][0] != '#'))
+
+	{
+		if (board.value[0][0] == 'x')
+		{
+			cout << "ѕобедили крестики!" << endl;
+		}
+		else
+		{
+			cout << "ѕобедили нолики! " << endl;
+		}
+		return true;
+
+	}
+
+	//если заполнена побочна€ диагональ
+
+	if ((board.value[0][2] == board.value[1][1]) && (board.value[0][2] == board.value[2][0]) && (board.value[0][2] != '#'))
+
+	{
+
+		if (board.value[0][2] == 'x')
+		{
+			cout << "ѕобедили крестики!" << endl;
+		}
+		else
+		{
+			cout << "ѕобедили нолики! " << endl;
+		}
+		return true;
+	}
+
+	//если заполнены все €чейки, но никто не победил
+
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			if (board.value[i][j] == '#')
+			{
+				return false;
+			}
+		}
+	}
+	cout << "Ќичь€!" << endl;
+
+	return true;
 }
 
