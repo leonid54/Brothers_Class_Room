@@ -42,6 +42,7 @@ using namespace std;
 
 int main()
 {
+
    /* cout << testCreatboardAndShowboard(game);
     cout << testMakestepZero(game);
     cout << testMakestepX(game);*/
@@ -63,19 +64,19 @@ int main()
     game.creatBoard();
     while(!game.PlayBoardIsEnd())
     {
-        if (player.doStep(x, y, game))
-        {
-            game.makeStep<Zero>(x, y);
-            count++;
-            cout << count << " Ход(нолики," << player.getName() << ")" << endl;
-            game.showBoard();
-            cout << endl;
-        }
-        if (player2.doStep(x, y, game) && !game.PlayBoardIsEnd() )
+        if ( player2.doStep(x, y, game))
         {
             game.makeStep<Сross>(x, y);
             count++;
             cout << count << " Ход(крестики," << player2.getName() << ")" << endl;
+            game.showBoard();
+            cout << endl;
+        }
+        if ( !game.PlayBoardIsEnd() && player.doStep(x, y, game))
+        {
+            game.makeStep<Zero>(x, y);
+            count++;
+            cout << count << " Ход(нолики," << player.getName() << ")" << endl;
             game.showBoard();
             cout << endl;
         }

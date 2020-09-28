@@ -14,21 +14,49 @@ string RandomPlayer::getName()
 }
 bool RandomPlayer::doStep(int& x, int& y, Game& game)
 {
-    /*if (game.isBoardFilled())
+   /* if (game.isBoardFilled())
     {
         return false;
     }*/
-    do
+  /*  do
     {
         srand(time(NULL));
-        x = rand() % 3;
-        y = rand() % 3;
-        if (game.getBoard().value[x][y] == '#')
+        int i = rand() % 3;
+        int j = rand() % 3;
+        if (game.getBoard().value[i][j] == '#')
         {
+            x = i;
+            y = j;
+            break;
+        }
+    } while (true);*/
+    srand(time(NULL));
+    do
+    {
+        
+        int i = rand() % 3;
+        int j = rand() % 3;
+        if (game.getBoard().value[i][j] == '#' && game.getBoard().value[i][j] != 'x')
+        {
+            x = i;
+            y = j;
             break;
         }
     } while (true);
-    
-
+  /*  int i = rand() % 3;
+    int j = rand() % 3;
+    while (game.getBoard().value[i][j] != '#')
+    {
+        int i = rand() % 3;
+        int j = rand() % 3;
+        if (game.getBoard().value[i][j] == '#')
+        {
+            x = i;
+            y = j;
+            break;
+        }
+    }
+    x = i;
+    y = j;*/
     return true;
 }
