@@ -4,10 +4,16 @@ c:\users\leong\source\repos\laba1\x64\debug\main.obj
 c:\users\leong\source\repos\laba1\x64\debug\player_smart.obj
 c:\users\leong\source\repos\laba1\x64\debug\player_random.obj
 c:\users\leong\source\repos\laba1\x64\debug\game.obj
+<<<<<<< HEAD
 c:\users\leong\source\repos\laba1\x64\debug\player.obj
 c:\users\leong\source\repos\laba1\x64\debug\laba1.ilk
+=======
+>>>>>>> 221d0a9efbfbb5927d8fc82df5fe64e829de3bf9
 c:\users\leong\source\repos\laba1\x64\debug\laba1.exe
+c:\users\leong\source\repos\laba1\x64\debug\laba1.ilk
 c:\users\leong\source\repos\laba1\x64\debug\laba1.pdb
+c:\users\leong\source\repos\laba1\x64\debug\player_random.obj.enc
+c:\users\leong\source\repos\laba1\x64\debug\player_smart.obj.enc
 c:\users\leong\source\repos\laba1\x64\debug\laba1.tlog\cl.command.1.tlog
 c:\users\leong\source\repos\laba1\x64\debug\laba1.tlog\cl.read.1.tlog
 c:\users\leong\source\repos\laba1\x64\debug\laba1.tlog\cl.write.1.tlog

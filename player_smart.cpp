@@ -14,6 +14,13 @@ string SmartPlayer::getName()
 bool SmartPlayer::doStep(int& x, int& y, Game& game)
 {
 	int count = 0;
+<<<<<<< HEAD
+=======
+    /*if (game.isBoardFilled())
+    {
+        return false;
+    }*/
+>>>>>>> 221d0a9efbfbb5927d8fc82df5fe64e829de3bf9
 	
 	//подсчитываем количество крестиков в каждой строке
 	for (int i = 0; i < 3; i++)
