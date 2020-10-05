@@ -2,6 +2,7 @@
 #include "player_random.h"
 #include "player_smart.h"
 #include "game.h"
+#include "PLAYER.h"
 using namespace std;
 
 //bool testCreatboardAndShowboard(Game game)
@@ -40,15 +41,38 @@ using namespace std;
 //    return false;
 //}
 
+int enterCheckNumber(int min, int max) //Проверка и ввод числа
+{
+    int number=0;
+    string str;
+    cin >> str;
+    while (str.size() > 1) 
+      {
+        cout << "Чиcло введено неверно!\nПопробуйте снова:";
+        cin >> str;
+      }
+
+    number = stoi(str);
+
+    while (!(number >= min && number <= max))
+    {
+        cout << "Чиcло введено неверно!\nПопробуйте снова:";
+        cin >> number;
+    }
+
+    return number;
+}
+
+
 int main()
 {
-   /* cout << testCreatboardAndShowboard(game);
-    cout << testMakestepZero(game);
-    cout << testMakestepX(game);*/
     setlocale(LC_ALL, "ru");
     string first_player, second_player;
     int count = 0;
-    int x, y;
+    int x,y;
+    
+    string answer;
+
     cout << "Добро пожаловать в игру крестики нолики!" << endl << "Введите имя первого игрока(Нолики,игрок со случайными ходами): ";
     cin >> first_player;
     cout << endl;
@@ -59,11 +83,52 @@ int main()
     RandomPlayer player(first_player);
     SmartPlayer player2(second_player);
     Game game;
+
+    Player* choose = &player;
+    Player* choose2 = &player2;
     
     game.creatBoard();
     while(!game.PlayBoardIsEnd())
     {
-        if (player.doStep(x, y, game))
+        cout << "Хотите взять управление ходом крестики?(yes/no)" << endl;
+        cin >> answer;
+        if (answer == "yes")
+        {
+            cout << "Введите два значения(x,y): ";
+            x = enterCheckNumber(0, 2);
+            y = enterCheckNumber(0, 2);
+            game.makeStep<Сross>(x, y);
+            count++;
+            cout << count << " Ход(крестики," << player2.getName() << ")" << endl;
+            game.showBoard();
+            cout << endl;
+        }
+        else if (choose2->doStep(x, y, game) && answer == "no")
+        {
+            game.makeStep<Сross>(x, y);
+            count++;
+            cout << count << " Ход(крестики," << player2.getName() << ")" << endl;
+            game.showBoard();
+            cout << endl;
+        }
+        else if (answer != "yes" || answer !="no")
+        {
+            cout << "Некорректный ответ!Пропуск хода!" << endl;
+        }
+        cout << "Хотите взять управление ходом ноликами?(yes/no)" << endl;
+        cin >> answer;
+        if (answer == "yes" && !game.PlayBoardIsEnd())
+        {
+            cout << "Введите два значения(x,y): ";
+            x = enterCheckNumber(0, 2);
+            y = enterCheckNumber(0, 2);
+            game.makeStep<Zero>(x, y);
+            count++;
+            cout << count << " Ход(нолики," << player.getName() << ")" << endl;
+            game.showBoard();
+            cout << endl;;
+        }
+        else if ( choose->doStep(x, y, game) && answer == "no")
         {
             game.makeStep<Zero>(x, y);
             count++;
@@ -71,13 +136,9 @@ int main()
             game.showBoard();
             cout << endl;
         }
-        if (player2.doStep(x, y, game) && !game.PlayBoardIsEnd() )
+        else if (answer != "yes" || answer != "no")
         {
-            game.makeStep<Сross>(x, y);
-            count++;
-            cout << count << " Ход(крестики," << player2.getName() << ")" << endl;
-            game.showBoard();
-            cout << endl;
+            cout << "Некорректный ответ!Пропуск хода!" << endl;
         }
     }
 

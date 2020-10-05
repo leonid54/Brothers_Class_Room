@@ -8,7 +8,6 @@ using namespace std;
 struct Board
 {
 	char value[3][3];
-	
 };
 
 struct Ñross
@@ -32,6 +31,7 @@ class Game
 {
 public:
 	Game();
+
 	void showBoard();
 	void creatBoard();
 	template<typename T>

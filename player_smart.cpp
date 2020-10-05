@@ -14,129 +14,127 @@ string SmartPlayer::getName()
 bool SmartPlayer::doStep(int& x, int& y, Game& game)
 {
 	int count = 0;
-   /* if (game.isBoardFilled())
-    {
-        return false;
-    }*/
 	
 	//подсчитываем количество крестиков в каждой строке
-	for (int x = 0; x < 3; x++)
+	for (int i = 0; i < 3; i++)
 	{
-		for (int y = 0; y < 3; y++)
+		for (int j = 0; j < 3; j++)
 		{
-			if (game.getBoard().value[x][y] == 'x')
+			if (game.getBoard().value[i][j] == 'x')
 			{
 				count++;
 			}
 		}
-	}
-	//если встречено два крестика
-	if (count == 2)
-	{
-		do
+		//если встречено два крестика
+		if (count == 2)
 		{
-			for (int y = 0; y < 3; y++)
-			{
-				if (game.getBoard().value[x][y] == '#')
+			
+				for (int j = 0; j < 3; j++)
 				{
-					this->y = y;
-					break;
+					if ((game.getBoard().value[i][j] == '#') && (game.getBoard().value[i][j] != 'x'))
+					{
+						x = i;
+						y = j;
+						return true;
+					}
 				}
-			}
-		} while (count == 5);
+		
+		}
+		count = 0;
 	}
-	count = 0;
 
-	for (int y = 0; y < 3; y++)
+	for (int j = 0; j < 3; j++)
 	{
-		for (int x = 0; x < 3; x++)
+		for (int i = 0; i < 3; i++)
 		{
-			if (game.getBoard().value[x][y] == 'x')
-			{
-				count++;
-			}
-		}
-	}
-	//если встречено два крестика
-	if (count == 2)
-	{
-		do
-		{
-			for (int x = 0; x < 3; x++)
-			{
-				if (game.getBoard().value[x][y] == '#')
-				{
-					this->x = x;
-					break;
-				}
-			}
-		} while (count == 5);
-	}
-	count = 0;
-
-		for (int x = 0; x < 3; x++)
-		{
-			y = x;
-			if (game.getBoard().value[x][y] == 'x')
-			{
-				count++;
-			}
-		}
-	//если встречено два крестика
-	if (count == 2)
-	{
-		do
-		{
-			for (int x = 0; x < 3; x++)
-			{
-				if (game.getBoard().value[x][y] == '#')
-				{
-					this->x = x;
-					break;
-				}
-			}
-		} while (count == 5);
-	}
-	count = 0;
-	for (int x = 0; x < 3; x++)
-	{
-		for (int y = 2;y > 0;y--)
-		{
-			if (game.getBoard().value[x][y] == 'x')
+			if (game.getBoard().value[i][j] == 'x')
 			{
 				count++;
 			}
 		}
 
-	}
-	if (count == 2)
-	{
-	do
-	 {
-	for (int x = 0; x < 3; x++)
-	  {
-		for (int y = 2; y > 0; y--)
+		//если встречено два крестика
+		if (count == 2)
 		{
-		  if (game.getBoard().value[x][y] == '#')
-		  {
-			  this->x = x;
-			  this->y = y;
-			break;
-		  }
+			
+				for (int i = 0; i < 3; i++)
+				{
+					if (game.getBoard().value[i][j] == '#' && game.getBoard().value[i][j] != 'x')
+					{
+						x = i;
+						y = j;
+						return true;
+					}
+				}
+			
 		}
-	  }
-	 }
-	while (count == 5);
-    }
-	count = 0;
+		count = 0;
+	}
+
+	for (int i = 0; i < 3; i++)
+	{
+		int j = i;
+		if (game.getBoard().value[i][j] == 'x')
+		{
+			count++;
+		}
+	}
+		//если встречено два крестика
+		if (count == 2)
+		{
+			
+				for (int i = 0; i < 3; i++)
+				{
+					int j = i;
+					if (game.getBoard().value[i][j] == '#' && game.getBoard().value[i][j] != 'x')
+					{
+						x = i;
+						y = j;
+						return true;
+					}
+				}
+			
+		}
+		count = 0;
+	
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 2; j > 0; j--)
+		{
+			if (game.getBoard().value[i][j] == 'x')
+			{
+				count++;
+			}
+		}
+
+
+		if (count == 2)
+		{
+		
+				for (int i = 0; i < 3; i++)
+				{
+					for (int j = 2; j > 0; j--)
+					{
+						if (game.getBoard().value[i][j] == '#' && game.getBoard().value[i][j] != '0')
+						{
+							x = i;
+							y = j;
+							return true;
+						}
+					}
+				}
+			
+		}
+		count = 0;
+	}
+	srand(time(NULL));
 	if (count == 0)
 	{
 		do
 		{
-			srand(time(NULL));
 			x = rand() % 3;
 			y = rand() % 3;
-			if (game.getBoard().value[x][y] == '#')
+			if (game.getBoard().value[x][y] == '#' && game.getBoard().value[x][y] != '0')
 			{
 				break;
 			}

@@ -143,9 +143,11 @@
     <ClCompile Include="player_random.cpp" />
     <ClCompile Include="player_smart.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PLAYER.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
+    <ClInclude Include="PLAYER.h" />
     <ClInclude Include="player_random.h" />
     <ClInclude Include="player_smart.h" />
   </ItemGroup>
