@@ -66,18 +66,15 @@ int enterCheckNumber(int min, int max) //Проверка и ввод числа
 
 int main()
 {
-<<<<<<< HEAD
-=======
+    /* cout << testCreatboardAndShowboard(game);
+     cout << testMakestepZero(game);
+     cout << testMakestepX(game);*/
 
-   /* cout << testCreatboardAndShowboard(game);
-    cout << testMakestepZero(game);
-    cout << testMakestepX(game);*/
->>>>>>> 221d0a9efbfbb5927d8fc82df5fe64e829de3bf9
     setlocale(LC_ALL, "ru");
     string first_player, second_player;
     int count = 0;
-    int x,y;
-    
+    int x, y;
+
     string answer;
 
     cout << "Добро пожаловать в игру крестики нолики!" << endl << "Введите имя первого игрока(Нолики,игрок со случайными ходами): ";
@@ -93,41 +90,32 @@ int main()
 
     Player* choose = &player;
     Player* choose2 = &player2;
-    
+
     game.creatBoard();
-    while(!game.PlayBoardIsEnd())
+    while (!game.PlayBoardIsEnd())
     {
-<<<<<<< HEAD
         cout << "Хотите взять управление ходом крестики?(yes/no)" << endl;
         cin >> answer;
-        if (answer == "yes")
+        if (answer == "yes" && !game.PlayBoardIsEnd())
         {
             cout << "Введите два значения(x,y): ";
             x = enterCheckNumber(0, 2);
             y = enterCheckNumber(0, 2);
-=======
-        if ( player2.doStep(x, y, game))
-        {
->>>>>>> 221d0a9efbfbb5927d8fc82df5fe64e829de3bf9
             game.makeStep<Сross>(x, y);
             count++;
             cout << count << " Ход(крестики," << player2.getName() << ")" << endl;
             game.showBoard();
             cout << endl;
         }
-<<<<<<< HEAD
         else if (choose2->doStep(x, y, game) && answer == "no")
-=======
-        if ( !game.PlayBoardIsEnd() && player.doStep(x, y, game))
->>>>>>> 221d0a9efbfbb5927d8fc82df5fe64e829de3bf9
         {
-            game.makeStep<Zero>(x, y);
+            game.makeStep<Сross>(x, y);
             count++;
-            cout << count << " Ход(нолики," << player.getName() << ")" << endl;
+            cout << count << " Ход(крестики," << player2.getName() << ")" << endl;
             game.showBoard();
             cout << endl;
         }
-        else if (answer != "yes" || answer !="no")
+        else if (answer != "yes" || answer != "no")
         {
             cout << "Некорректный ответ!Пропуск хода!" << endl;
         }
@@ -144,7 +132,7 @@ int main()
             game.showBoard();
             cout << endl;;
         }
-        else if ( choose->doStep(x, y, game) && answer == "no")
+        else if (choose->doStep(x, y, game) && answer == "no")
         {
             game.makeStep<Zero>(x, y);
             count++;
